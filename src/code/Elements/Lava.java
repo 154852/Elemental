@@ -12,7 +12,7 @@ public class Lava extends Element {
         this.triggerChar = 'l';
         this.color = new Color(240, 94, 31);
         this.liquid = true;
-        this.flamable = false;
+        this.flammable = false;
     }
 
     @Override

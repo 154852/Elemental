@@ -8,6 +8,6 @@ public class Water extends Element {
         this.triggerChar = 'w';
         this.liquid = true;
         this.color = Color.blue;
-        this.flamable = false;
+        this.flammable = false;
     }
 }

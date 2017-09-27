@@ -7,6 +7,6 @@ public class Stone extends Element {
         this.name = "Stone";
         this.triggerChar = 's';
         this.color = Color.gray;
-        this.flamable = false;
+        this.flammable = false;
     }
 }

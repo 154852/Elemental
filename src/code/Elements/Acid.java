@@ -11,7 +11,7 @@ public class Acid extends Element {
         this.color = Color.green;
         this.triggerChar = 'a';
         this.liquid = true;
-        this.flamable = false;
+        this.flammable = false;
     }
 
     @Override public void update(int updates) {

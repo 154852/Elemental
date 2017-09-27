@@ -39,7 +39,7 @@ public class Fire extends Element {
             if (below == null) {
                 return;
             }
-            if (below.isAir() || below.getClass().equals(Rock.class) || !below.flamable) {
+            if (below.isAir() || below.getClass().equals(Rock.class) || !below.flammable) {
                 return;
             }
             Point pos = this.find(below);

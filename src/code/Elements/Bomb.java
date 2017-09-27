@@ -9,7 +9,7 @@ public class Bomb extends Element {
         this.color = new Color(25, 186, 22);
         this.name = "Bomb";
         this.triggerChar = 'b';
-        this.flamable = false;
+        this.flammable = false;
     }
 
     @Override

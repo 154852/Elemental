@@ -13,7 +13,7 @@ public abstract class Element {
     public char triggerChar = ' ';
     boolean liquid = false;
     int chance;
-    boolean flamable = true;
+    boolean flammable = true;
 
     public void update(int updates) {}
 
