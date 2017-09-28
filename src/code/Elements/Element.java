@@ -15,7 +15,8 @@ public abstract class Element {
     boolean liquid = false;
     int chance;
     boolean flammable = true;
-    public boolean updatAble = true;
+    public boolean updatable = true;
+    boolean gas = false;
 
     public void update(int updates) {}
 
@@ -23,15 +24,26 @@ public abstract class Element {
         this.update(updates);
         if (this.liquid) { this.liquid(); }
         if (this.gravity) { this.gravity(); }
+        if (this.gas) { this.gas(); }
+    }
+
+    private void gas() {
+        int side = (int) (Math.random() * 5) + 1;
+        Element element = this.getItem(side);
+        if (element == null) { return; }
+        if (element.isAir()) { this.move(side); }
+
+        Element top = this.getItem(3);
+        if (top == null) { return; }
+        if (top.isAir()) { this.move(3); }
+
     }
 
     private void gravity() {
         Element element = this.getItem(1);
         if (element == null) { return; }
 
-        if (element.isAir()) {
-            this.move(1);
-        }
+        if (element.isAir()) { this.move(1); }
 
     }
 
