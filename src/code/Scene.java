@@ -55,24 +55,25 @@ public class Scene extends JPanel implements MouseListener, KeyListener {
 
     void update() {
         if (this.mouseDown) {
-            if (!this.isRight) { this.addItem(this.getMousePosition());
-            } else { this.removeItem(this.getMousePosition()); }
+            if (!this.isRight) {
+                this.addItem(this.getMousePosition());
+            } else {
+                this.removeItem(this.getMousePosition());
+            }
         }
         this.repaint();
-        if (this.reset) {return;}
+        if (this.reset) { return; }
         this.updates++;
-        try {
-            ArrayList<ArrayList<Element>> newList = new ArrayList<>();
-            newList.addAll(items);
-            Collections.shuffle(newList);
-            for (ArrayList<Element> elements : newList) {
-                for (Element element : elements) {
-                    if (!element.isAir()) {
-                        element.updateCore(this.updates);
-                    }
+        ArrayList<ArrayList<Element>> newList = new ArrayList<>();
+        newList.addAll(items);
+        Collections.shuffle(newList);
+        for (ArrayList<Element> elements : newList) {
+            for (Element element : elements) {
+                if (!element.isAir()) {
+                    element.updateCore(this.updates);
                 }
             }
-        } catch (ConcurrentModificationException e) { e.printStackTrace(); }
+        }
     }
 
     private void addItem(Point loc) {
