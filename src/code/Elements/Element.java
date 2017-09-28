@@ -15,6 +15,7 @@ public abstract class Element {
     boolean liquid = false;
     int chance;
     boolean flammable = true;
+    public boolean updatAble = true;
 
     public void update(int updates) {}
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Wind extends Element {
     public Wind() {
-        this.color = Color.black;
+        this.color = Elemental.scene.getBackground().darker();
         this.gravity = false;
         this.triggerChar = 'x';
         this.flammable = false;
@@ -22,17 +22,31 @@ public class Wind extends Element {
         List<Integer> directions = Arrays.asList(1, 2, 3, 4);
         Collections.shuffle(directions);
 
-        for (Integer direction : directions) {
-            Element side = this.getItem(direction);
-            if (side == null) {continue;}
-            if ((int)(Math.random() * 3) == 1) { side = side.getItem(direction); }
-            if (side == null) {continue;}
-            if (side.gravity && side.getItem(direction).isAir()) {
-                side.move((int) (Math.random() * 4));
-                this.move((int) (Math.random() * 4));
+        try {
+            for (Integer direction : directions) {
+                Element side = this.getItem(direction);
+                if (side == null) {
+                    continue;
+                }
+                if ((int) (Math.random() * 3) == 1) {
+                    side = side.getItem(direction);
+                }
+                if (side == null) {
+                    continue;
+                }
+                direction = (int) (Math.random() * 4) + 1;
+                if (side.gravity && side.getItem(direction).isAir()) {
+                    side.move(direction);
+                }
             }
-        }
+            int direction = (int) (Math.random() * 4) + 1;
+            if (this.getItem(direction).isAir()) {
+                this.move(direction);
+            }
 
-        if ((int) (Math.random() * 50) == 1) { this.delete(); }
+            if ((int) (Math.random() * 100) == 1) { this.delete(); }
+        } catch (Exception e) {
+            this.delete();
+        }
     }
 }

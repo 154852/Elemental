@@ -69,7 +69,7 @@ public class Scene extends JPanel implements MouseListener, KeyListener {
         Collections.shuffle(newList);
         for (ArrayList<Element> elements : newList) {
             for (Element element : elements) {
-                if (!element.isAir()) {
+                if (element.updatAble) {
                     element.updateCore(this.updates);
                 }
             }
