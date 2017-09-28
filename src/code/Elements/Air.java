@@ -7,5 +7,6 @@ public class Air extends Element {
         this.color = Color.DARK_GRAY;
         this.name = "Air";
         this.gravity = false;
+        this.updatAble = false;
     }
 }

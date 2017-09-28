@@ -11,7 +11,7 @@ public class Scene extends JPanel implements MouseListener, KeyListener {
     public ArrayList<ArrayList<Element>> items = new ArrayList<>();
     private static ArrayList<Class<? extends Element>> elements = new ArrayList<>(Arrays.asList
             (Powder.class, Acid.class, Rock.class, Water.class, Stone.class, Lava.class, Bomb.class, Tree.class,
-            Fire.class, Oil.class));
+            Fire.class, Oil.class, Wind.class));
     private boolean mouseDown = false;
     private int updates = 0;
     private boolean isRight = false;
@@ -69,7 +69,7 @@ public class Scene extends JPanel implements MouseListener, KeyListener {
         Collections.shuffle(newList);
         for (ArrayList<Element> elements : newList) {
             for (Element element : elements) {
-                if (!element.isAir()) {
+                if (element.updatAble) {
                     element.updateCore(this.updates);
                 }
             }
