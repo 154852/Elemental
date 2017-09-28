@@ -15,6 +15,7 @@ public abstract class Element {
     boolean liquid = false;
     int chance;
     boolean flammable = true;
+    public boolean updatAble = true;
 
     public void update(int updates) {}
 
@@ -69,6 +70,7 @@ public abstract class Element {
 
     void delete() {
         Point pos = this.getPos();
+        if (pos == null) {return;}
         Elemental.scene.items.get(pos.x).set(pos.y, new Air());
     }
 
