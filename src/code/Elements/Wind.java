@@ -45,8 +45,6 @@ public class Wind extends Element {
             }
 
             if ((int) (Math.random() * 100) == 1) { this.delete(); }
-        } catch (Exception e) {
-            this.delete();
-        }
+        } catch (Exception e) { this.delete(); }
     }
 }
