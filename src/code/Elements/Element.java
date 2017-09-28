@@ -69,6 +69,7 @@ public abstract class Element {
 
     void delete() {
         Point pos = this.getPos();
+        if (pos == null) {return;}
         Elemental.scene.items.get(pos.x).set(pos.y, new Air());
     }
 
