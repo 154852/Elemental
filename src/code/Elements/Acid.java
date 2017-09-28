@@ -1,5 +1,6 @@
 package code.Elements;
 
+import code.Elemental;
 import code.Scene;
 
 import java.awt.*;
@@ -29,7 +30,7 @@ public class Acid extends Element {
             if (pos == null) {
                 return;
             }
-            Scene.items.get(pos.x).set(pos.y, new Air());
+            Elemental.scene.items.get(pos.x).set(pos.y, new Air());
             this.delete();
         }
 

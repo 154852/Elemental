@@ -8,8 +8,8 @@ import java.awt.event.*;
 import java.util.*;
 
 public class Scene extends JPanel implements MouseListener, KeyListener {
-    public static ArrayList<ArrayList<Element>> items = new ArrayList<>();
-    private ArrayList<Class<? extends Element>> elements = new ArrayList<>(Arrays.asList
+    public ArrayList<ArrayList<Element>> items = new ArrayList<>();
+    private static ArrayList<Class<? extends Element>> elements = new ArrayList<>(Arrays.asList
             (Powder.class, Acid.class, Rock.class, Water.class, Stone.class, Lava.class, Bomb.class, Tree.class,
             Fire.class, Oil.class));
     private boolean mouseDown = false;
@@ -138,7 +138,7 @@ public class Scene extends JPanel implements MouseListener, KeyListener {
         } else if (e.getKeyChar() == 'P') {
             this.reset = !this.reset;
         } else {
-            for (Class<? extends Element> element : this.elements) {
+            for (Class<? extends Element> element : Scene.elements) {
                 try {
                     if (element.newInstance().triggerChar == e.getKeyChar() &&
                             element.newInstance().triggerChar != ' ') {

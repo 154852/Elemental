@@ -1,5 +1,6 @@
 package code.Elements;
 
+import code.Elemental;
 import code.Scene;
 
 import java.awt.*;
@@ -48,7 +49,7 @@ public class Fire extends Element {
             }
             Element fire = new Fire();
             fire.color = colors.get((int) (Math.random() * 3));
-            Scene.items.get(pos.x).set(pos.y, fire);
+            Elemental.scene.items.get(pos.x).set(pos.y, fire);
         }
 
         if ((int) (Math.random() * 20) == 0) {

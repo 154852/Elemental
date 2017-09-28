@@ -1,5 +1,6 @@
 package code.Elements;
 
+import code.Elemental;
 import code.Scene;
 
 import java.awt.*;
@@ -31,12 +32,12 @@ public class Lava extends Element {
             Point pos = this.find(below);
             if (pos == null) { return; }
             if (below.getClass().equals(Water.class)) {
-                Scene.items.get(pos.x).set(pos.y, new Stone());
+                Elemental.scene.items.get(pos.x).set(pos.y, new Stone());
                 this.delete();
                 return;
             }
             try {
-            Scene.items.get(pos.x).set(pos.y, this.getClass().newInstance());
+                Elemental.scene.items.get(pos.x).set(pos.y, this.getClass().newInstance());
             } catch (Exception e) { e.printStackTrace(); }
             if (!below.getClass().equals(Stone.class)) {
                 this.delete();

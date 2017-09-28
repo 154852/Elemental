@@ -1,5 +1,6 @@
 package code.Elements;
 
+import code.Elemental;
 import code.Scene;
 
 import java.awt.*;
@@ -43,9 +44,9 @@ public class Tree extends Element {
         try {
             int rand = (int) (Math.random() * 5);
             if (rand < 3) {
-                Scene.items.get(pos.x).set(pos.y, this.getClass().newInstance());
+                Elemental.scene.items.get(pos.x).set(pos.y, this.getClass().newInstance());
             } else {
-                Scene.items.get(pos.x).set(pos.y, new Leaf());
+                Elemental.scene.items.get(pos.x).set(pos.y, new Leaf());
             }
         } catch (Exception e) { e.printStackTrace(); }
     }

@@ -1,5 +1,6 @@
 package code.Elements;
 
+import code.Elemental;
 import code.Scene;
 
 import java.awt.*;
@@ -56,9 +57,9 @@ public abstract class Element {
     }
 
     Point getPos() {
-        for (int a = 0; a < Scene.items.size(); a++) {
-            for (int b = 0; b < Scene.items.get(a).size(); b++) {
-                if (Scene.items.get(a).get(b).equals(this)) {
+        for (int a = 0; a < Elemental.scene.items.size(); a++) {
+            for (int b = 0; b < Elemental.scene.items.get(a).size(); b++) {
+                if (Elemental.scene.items.get(a).get(b).equals(this)) {
                     return new Point(a, b);
                 }
             }
@@ -68,7 +69,7 @@ public abstract class Element {
 
     void delete() {
         Point pos = this.getPos();
-        Scene.items.get(pos.x).set(pos.y, new Air());
+        Elemental.scene.items.get(pos.x).set(pos.y, new Air());
     }
 
     void move(int side) {
@@ -84,26 +85,26 @@ public abstract class Element {
 
         switch (side) {
             case 1:
-                Scene.items.get(pos.x).set(pos.y + 1, newItem);
+                Elemental.scene.items.get(pos.x).set(pos.y + 1, newItem);
                 break;
             case 2:
-                Scene.items.get(pos.x + 1).set(pos.y, newItem);
+                Elemental.scene.items.get(pos.x + 1).set(pos.y, newItem);
                 break;
             case 3:
-                Scene.items.get(pos.x).set(pos.y - 1, newItem);
+                Elemental.scene.items.get(pos.x).set(pos.y - 1, newItem);
                 break;
             case 4:
-                Scene.items.get(pos.x - 1).set(pos.y, newItem);
+                Elemental.scene.items.get(pos.x - 1).set(pos.y, newItem);
                 break;
         }
-        Scene.items.get(pos.x).set(pos.y, new Air());
+        Elemental.scene.items.get(pos.x).set(pos.y, new Air());
 
     }
 
     Point find(Element e) {
-        for (int a = 0; a < Scene.items.size(); a++) {
-            for (int b = 0; b < Scene.items.get(a).size(); b++) {
-                if (Scene.items.get(a).get(b).equals(e)) {
+        for (int a = 0; a < Elemental.scene.items.size(); a++) {
+            for (int b = 0; b < Elemental.scene.items.get(a).size(); b++) {
+                if (Elemental.scene.items.get(a).get(b).equals(e)) {
                     return new Point(a, b);
                 }
             }
@@ -123,13 +124,13 @@ public abstract class Element {
 
         switch (side) {
             case 1:
-                return Scene.items.get(pos.x).get(pos.y + 1);
+                return Elemental.scene.items.get(pos.x).get(pos.y + 1);
             case 2:
-                return Scene.items.get(pos.x + 1).get(pos.y);
+                return Elemental.scene.items.get(pos.x + 1).get(pos.y);
             case 3:
-                return Scene.items.get(pos.x).get(pos.y - 1);
+                return Elemental.scene.items.get(pos.x).get(pos.y - 1);
             case 4:
-                return Scene.items.get(pos.x - 1).get(pos.y);
+                return Elemental.scene.items.get(pos.x - 1).get(pos.y);
         }
         return null;
     }

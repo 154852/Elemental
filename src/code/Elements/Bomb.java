@@ -1,5 +1,6 @@
 package code.Elements;
 
+import code.Elemental;
 import code.Scene;
 
 import java.awt.*;
@@ -24,9 +25,9 @@ public class Bomb extends Element {
         for (int a = -r; a <= r; a++) {
             for (int b = -r; b <= r; b++) {
                 if (pos.x + a >= 100 || pos.x + a <= 0) {continue;}
-                if (Scene.items.get(pos.x + a).get(pos.y + b).getClass().equals(Rock.class) ||
-                        Scene.items.get(pos.x + a).get(pos.y + b).liquid) { continue; }
-                Scene.items.get(pos.x + a).set(pos.y + b, new Air());
+                if (Elemental.scene.items.get(pos.x + a).get(pos.y + b).getClass().equals(Rock.class) ||
+                        Elemental.scene.items.get(pos.x + a).get(pos.y + b).liquid) { continue; }
+                Elemental.scene.items.get(pos.x + a).set(pos.y + b, new Air());
             }
         }
     }
